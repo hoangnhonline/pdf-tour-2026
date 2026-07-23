@@ -56,9 +56,9 @@ class PdfController extends Controller
     {
         // Dữ liệu bóc tách chính xác từ file 30Sundays-package.pdf
         $pdfData = [
-            'brand_name'    => '30 Sundays',
-            'rating'        => '4.6 on Google',
-            'slogan'        => 'We do only couple packages. But then we do it better than anyone else.',
+            'brand_name'    => 'Plan To Travel',
+            'rating' => '',
+            'slogan'        => 'Your trust, our quality',
             
             // Traveller Details
             'customer_name' => 'Ansh',
@@ -161,10 +161,10 @@ class PdfController extends Controller
             $bgPath = null;
           //  dd('11111');
         }
-        return view('pdf.test_itinerary', compact('pdfData', 'bgBase64', 'bgPath'));
+       // return view('pdf.test_itinerary', compact('pdfData', 'bgBase64', 'bgPath'));
        //$pdf = PDF::loadView('pdf.test_itinerary', compact('pdfData', 'bgBase64'), [], 'utf-8')
          // ->setPaper('a4', 'portrait');
-        $pdf = PDF::loadView('pdf.test_itinerary', compact('pdfData', 'bgPath'))
+        $pdf = PDF::loadView('pdf.test_itinerary', compact('pdfData', 'bgBase64'))
               ->setPaper('a4', 'portrait'); 
         return $pdf->stream('30Sundays-Itinerary-Test.pdf');
     }

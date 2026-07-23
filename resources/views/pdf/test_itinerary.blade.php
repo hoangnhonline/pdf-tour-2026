@@ -4,13 +4,36 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>{{ $pdfData['customer_name'] }} - {{ $pdfData['brand_name'] }} Itinerary</title>
     <style>
+        @font-face {
+            font-family: 'Exo 2 Custom';
+            src: url('fonts/Exo2-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Exo 2 Custom';
+            src: url('fonts/Exo2-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
         @page {
-            margin: 110px 30px 70px 30px; /* Top Right Bottom Left */
+            margin: 110px 30px 70px 30px;
+            
+        }
+        .pdf-background {
+            position: fixed;
+            top: -110px;    /* Bù lại margin-top của @page */
+            left: -30px;   /* Bù lại margin-left của @page */
+            width: 210mm;   /* Rộng chuẩn A4 */
+            height: 297mm;  /* Cao chuẩn A4 */
+            z-index: -1000; /* Luôn nằm dưới cùng */
+            opacity: 0.15;  /* Độ mờ background */
         }
 
         body {
-            font-family: 'DejaVu Sans', sans-serif;
-            font-size: 11px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
             color: #2c3e50;
             line-height: 1.4;
         }
@@ -33,8 +56,8 @@
             left: 0px;
             right: 0px;
             height: 70px;
-            border-bottom: 2px solid #6b21a8;
-            padding-bottom: 5px;
+            border-bottom: 1px solid #0f5a7e;
+            padding-bottom: 0px;
         }
 
         .header-left {
@@ -55,8 +78,9 @@
         }
 
         .brand-sub {
-            font-size: 9px;
+            font-size: 11px;
             color: #6b7280;
+            padding-top: 20px;
         }
 
         /* 3. FOOTER CỐ ĐỊNH MỖI TRANG */
@@ -76,17 +100,20 @@
         .pagenum:before {
             content: counter(page);
         }
+       
+
+        
 
         /* 4. COMPONENT STYLES */
         .section-header {
-            font-size: 14px;
+            font-family: 'Exo 2 Custom', sans-serif;
+            font-size: 20px;
             font-weight: bold;
-            color: #581c87;
-            background-color: #f3e8ff;
-            padding: 6px 10px;
-            margin-top: 15px;
+            color: #083f5b;           
+            padding: 5px;
+            margin-top: 10px;
             margin-bottom: 10px;
-            border-left: 4px solid #7e22ce;
+            border-left: 3px solid #0f5a7e;
         }
 
         table.data-table {
@@ -103,7 +130,7 @@
 
         table.data-table th {
             background-color: #faf5ff;
-            color: #581c87;
+            color: #eb6290;
             font-weight: bold;
         }
 
@@ -132,13 +159,12 @@
             border-radius: 4px;
             padding: 10px;
             margin-bottom: 12px;
-            background-color: #ffffff;
         }
 
         .day-title {
-            font-size: 12px;
+            font-size: 15px;
             font-weight: bold;
-            color: #6b21a8;
+            color: #eb6290;
             margin-bottom: 4px;
         }
 
@@ -151,18 +177,17 @@
 
     <!-- Background Image -->
     @if($bgBase64)
-        <img src="{{ $bgBase64 }}" id="pdf-bg">
+        <img src="{{ $bgBase64 }}" class="pdf-background">
     @endif
 
     <!-- Fixed Header -->
     <header>
         <div class="header-left">
-            <div class="brand-title">Vacay!</div>
-            <div class="brand-sub">{{ $pdfData['slogan'] }}</div>
+            <img src="images/logo.png" width="100" />  
+            
         </div>
         <div class="header-right">
-            <strong style="font-size: 16px; color: #581c87;">{{ $pdfData['brand_name'] }}</strong><br>
-            <span style="font-size: 9px; color: #16a34a;">★ {{ $pdfData['rating'] }}</span>
+            <div class="brand-sub">{{ $pdfData['slogan'] }}</div>         
         </div>
     </header>
 
@@ -222,6 +247,7 @@
 
         <!-- Accommodation Details -->
         <div class="section-header">Accommodation Details</div>
+        <img src="images/hotel.jpg" width="100%">
         <div style="margin-bottom: 8px;">
             <strong style="font-size: 13px;">{{ $pdfData['hotel']['name'] }}</strong> 
             <span class="badge">{{ $pdfData['hotel']['rating'] }}</span>

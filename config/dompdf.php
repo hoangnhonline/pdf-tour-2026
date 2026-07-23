@@ -238,6 +238,9 @@ return array(
          * Use the more-than-experimental HTML5 Lib parser
          */
         "enable_html5_parser" => false,
+        'isFontSubsettingEnabled' => true,
+        'font_dir' => storage_path('fonts'), // hoặc 'fontDir' tùy bản dompdf
+    'font_cache' => storage_path('fonts'), // hoặc 'fontCache'
     ),
 
 
