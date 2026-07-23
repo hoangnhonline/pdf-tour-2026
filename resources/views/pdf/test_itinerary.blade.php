@@ -21,8 +21,58 @@
             margin: 110px 30px 70px 30px;
             
         }
+        /* Khối Exclusions tổng quan */
+        .exclusions-section {
+            margin-top: 25px;
+            padding: 15px 20px;
+            background-color: #fef2f2; /* Nền đỏ nhạt nhẹ nhàng */
+            border-left: 4px solid #ef4444; /* Viền màu đỏ cảnh báo */
+            border-radius: 4px;
+            page-break-inside: avoid; /* Tránh ngắt trang dở dang trên PDF */
+        }
+
+        .exclusions-title {
+            color: #991b1b;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .exclusions-list {
+            margin: 0;
+            padding-left: 18px;
+            list-style-type: disc;
+        }
+
+        .exclusions-list li {
+            font-size: 17px;
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
         ul {
             line-height: 27px;
+        }
+        /* Khối tóm tắt Inclusion/Exclusion ở cuối mỗi Day Block */
+        .day-summary-footer {
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px dashed #e5e7eb;
+            font-size: 17px; /* Cập nhật font-size 17px */
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .day-summary-footer .inc-label {
+            color: #0891b2;
+            font-weight: bold;
+        }
+
+        .day-summary-footer .exc-label {
+            color: #ef4444;
+            font-weight: bold;
         }
         .content-level1 h3{
             font-family: 'Exo 2 Custom';
@@ -188,6 +238,112 @@
         .page-break {
             page-break-after: always;
         }
+        h1.title-general{
+            color: #0b3c5d; font-size: 24px; text-transform: uppercase; margin-bottom: 5px;
+            font-family: 'Exo 2 Custom', sans-serif;
+        }
+        /* Font & Reset cơ bản */
+        .day-block {
+            font-family: 'Exo 2 Custom', sans-serif;
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 20px;
+            page-break-inside: avoid; /* Đảm bảo không vỡ trang giữa chừng */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* Header của Ngày */
+        .day-header {
+            background: #f9cfde;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+        }
+
+        .day-badge {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            color: #0c0c0c;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .day-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0;
+            color: #595353;
+        }
+
+        /* Phần nội dung dạng dòng đơn */
+        .day-body {
+            padding: 15px 18px;
+        }
+
+        /* Tóm tắt tổng quan ngắn (nếu có) */
+        .day-summary {
+            font-size: 11px;
+            font-style: italic;
+            color: #0891b2;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+
+        /* Danh sách các điểm tham quan / hoạt động */
+        .activity-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .activity-item {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 10px;
+        }
+
+        .activity-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Dấu gạch / Bullet icon đồng bộ màu nhận diện */
+        .activity-item::before {
+            content: "•";
+            color: #0891b2;
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .activity-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0b3c5d;
+            display: inline;
+        }
+
+        .activity-desc {
+            font-size: 17px;
+            line-height: 1.5;
+            color: #4b5563;
+            margin: 3px 0 0 0;
+        }
+        .option-divider {
+            margin: 15px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #0891b2;
+            color: #0b3c5d;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -214,7 +370,297 @@
         <div>Page <span class="pagenum"></span></div>
     </footer>
     
+    <main>
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h1 class="title-general">
+                Phu Quoc & Da Nang Discovery
+            </h1>
+            <div style="color: #0891b2; font-size: 14px; font-weight: bold; letter-spacing: 1px;font-family: 'Exo 2 Custom', sans-serif;">
+                6 DAYS / 5 NIGHTS ITINERARY
+            </div>
+        </div>
+        
+        <div class="day-block">
+            <!-- Header -->
+            <div class="day-header">
+                <span class="day-badge">DAY 1</span>
+                <h3 class="day-title">Welcome to Phu Quoc</h3>
+            </div>
 
+            <!-- Main Content -->
+            <div class="day-body">
+                
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="activity-title">Airport Arrival & Private Transfer:</span>
+                        <p class="activity-desc">
+                            Warm welcome upon arrival at Phu Quoc International Airport. Your private vehicle will driver-transfer you smoothly to the hotel.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Lunch & Check-in:</span>
+                        <p class="activity-desc">
+                            Savor a delicious lunch (Indian menu option available), followed by hotel check-in and time to unwind at your leisure.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Evening at Leisure:</span>
+                        <p class="activity-desc">
+                            Enjoy a relaxed evening at your own pace—stroll along the beach, catch a famous Phu Quoc sunset, or explore the local night market.
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Inclusions & Exclusions Summary Bar -->
+               <div class="day-summary-footer">
+                    <span class="inc-label">✔ Inclusions:</span> Airport pickup (Private vehicle), Accommodation (CP), Lunch.<br>
+                    <span class="exc-label">✖ Exclusions:</span> Dinner, drinks, personal expenses.
+                </div>
+
+            </div>
+        </div><!--day 1-->
+        <div class="day-block">
+            <!-- Header -->
+            <div class="day-header">
+                <span class="day-badge">DAY 2</span>
+                <h3 class="day-title">VinWonders Adventure & Night Market Experience</h3>
+            </div>
+
+            <!-- Main Content -->
+            <div class="day-body">
+                
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="activity-title">Morning Breakfast & Park Transfer:</span>
+                        <p class="activity-desc">
+                            Start your day with breakfast at the hotel before your private transfer takes you to VinWonders Phu Quoc—Vietnam's largest theme park.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Full Day at VinWonders:</span>
+                        <p class="activity-desc">
+                            Immerse yourself in world-class rides, vibrant cultural shows, and the breathtaking underwater world at the Sea Shell Aquarium.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Phu Quoc Night Market & Indian Dinner:</span>
+                        <p class="activity-desc">
+                            In the evening, transfer to the lively Phu Quoc Night Market to soak in the local atmosphere, followed by a delicious, authentic Indian dinner.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Return Transfer:</span>
+                        <p class="activity-desc">
+                            After dinner, your private driver will escort you back to the hotel for a restful night.
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Inclusions & Exclusions Summary Bar -->
+                <div class="day-summary-footer">
+                    <span class="inc-label">✔ Inclusions:</span> Private transfers, VinWonders entrance tickets, Indian dinner.<br>
+                    <span class="exc-label">✖ Exclusions:</span> Lunch, drinks, personal expenses.
+                </div>
+
+            </div>
+        </div><!--day 2-->
+        <div class="day-block">
+            <!-- Header -->
+            <div class="day-header">
+                <span class="day-badge">DAY 3</span>
+                <h3 class="day-title">Island Exploration & Leisure (Selectable Options)</h3>
+            </div>
+
+            <!-- Main Content -->
+            <div class="day-body">
+                
+                <!-- ================= OPTION 1 ================= -->
+                <div class="option-divider">Option 1: 3-Island Speedboat & Snorkeling Tour</div>
+
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="activity-title">Island Hopping & Snorkeling Adventure:</span>
+                        <p class="activity-desc">
+                            Enjoy breakfast at the hotel, followed by a shared group (SIC) transfer to the harbor. Board a high-speed boat to explore Phu Quoc’s pristine southern islands, swim, and snorkel in crystal-clear waters.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Island Lunch & Relaxation:</span>
+                        <p class="activity-desc">
+                            Savor a local island lunch (vegetarian options available), then unwind on white sandy beaches before returning to your hotel.
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Inclusions/Exclusions for Option 1 -->
+                <div class="day-summary-footer">
+                    <span class="inc-label">✔ Inclusions (Opt 1):</span> Shared group transfers, Speedboat, Tour guide, Island lunch, Snorkeling gear.<br>
+                    <span class="exc-label">✖ Exclusions:</span> Dinner, drinks, personal expenses.
+                </div>
+
+
+                <!-- ================= OPTION 2 ================= -->
+                <div class="option-divider" style="margin-top: 25px;">Option 2: Hon Thom Cable Car & Sunset Town Experience</div>
+
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="activity-title">World's Longest Cable Car Ride:</span>
+                        <p class="activity-desc">
+                            After breakfast, enjoy a private transfer to Sunset Town and board the world’s longest 3-wire cable car to Hon Thom Island for spectacular aerial ocean views.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Kiss Bridge & Sunset Town Walk:</span>
+                        <p class="activity-desc">
+                            Explore the Mediterranean-inspired Sunset Town and visit the iconic Kiss Bridge before your private transfer takes you back to the hotel.
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Inclusions/Exclusions for Option 2 -->
+                <div class="day-summary-footer">
+                    <span class="inc-label">✔ Inclusions (Opt 2):</span> Private transfers, Cable car round-trip ticket, Kiss Bridge entry ticket.<br>
+                    <span class="exc-label">✖ Exclusions:</span> Lunch, Dinner, drinks, personal expenses.
+                </div>
+
+            </div>
+        </div><!--day 3-->
+        <div class="day-block">
+            <!-- Header -->
+            <div class="day-header">
+                <span class="day-badge">DAY 4</span>
+                <h3 class="day-title">Flight to Da Nang & Enchanting Hoi An Exploration</h3>
+            </div>
+
+            <!-- Main Content -->
+            <div class="day-body">
+                
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="activity-title">Phu Quoc Departure & Fly to Da Nang:</span>
+                        <p class="activity-desc">
+                            Enjoy breakfast and check out of your hotel. Your private transfer will escort you to Phu Quoc Airport for your domestic flight to Da Nang. Upon arrival, transfer to your hotel for check-in.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Hoi An Ancient Town & Cam Thanh Coconut Village:</span>
+                        <p class="activity-desc">
+                            In the afternoon, embark on a private 5-hour excursion to the lush Cam Thanh Coconut Village and the lantern-lit streets of Hoi An Ancient Town.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Return Transfer:</span>
+                        <p class="activity-desc">
+                            After exploring the charming culture and night views of Hoi An, your private cab will comfortably drive you back to your hotel in Da Nang.
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Inclusions/Exclusions Summary Bar -->
+                <div class="day-summary-footer">
+                    <span class="inc-label">✔ Inclusions:</span> Domestic flight ticket, Private airport transfers, Private 5-hr Hoi An cab, Accommodation (CP).<br>
+                    <span class="exc-label">✖ Exclusions:</span> Lunch, Dinner, drinks, Coconut boat ride ticket, personal expenses.
+                </div>
+
+            </div>
+        </div><!--day 4-->
+        <div class="day-block">
+            <!-- Header -->
+            <div class="day-header">
+                <span class="day-badge">DAY 5</span>
+                <h3 class="day-title">Ba Na Hills & Iconic Golden Bridge</h3>
+            </div>
+
+            <!-- Main Content -->
+            <div class="day-body">
+                
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="activity-title">Morning Departure:</span>
+                        <p class="activity-desc">
+                            Enjoy a wholesome breakfast at your hotel before your private vehicle picks you up for a scenic drive to Ba Na Hills.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Ba Na Hills & Golden Bridge Exploration:</span>
+                        <p class="activity-desc">
+                            Ascend via cable car to marvel at the iconic Golden Bridge held by giant stone hands. Spend the day exploring the French Village, Le Jardin D'Amour gardens, and exciting rides at Fantasy Park.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Return Transfer:</span>
+                        <p class="activity-desc">
+                            After a full day of sightseeing, descend via cable car and relax as your private transfer comfortably takes you back to your hotel in Da Nang.
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Inclusions/Exclusions Summary Bar -->
+                <div class="day-summary-footer">
+                    <span class="inc-label">✔ Inclusions:</span> Private transfers, Ba Na Hills entry & cable car tickets.<br>
+                    <span class="exc-label">✖ Exclusions:</span> Lunch, Dinner, drinks, personal expenses.
+                </div>
+
+            </div>
+        </div><!--day 5-->
+        <div class="day-block">
+            <!-- Header -->
+            <div class="day-header">
+                <span class="day-badge">DAY 6</span>
+                <h3 class="day-title">Departure & Journey Home</h3>
+            </div>
+
+            <!-- Main Content -->
+            <div class="day-body">
+                
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="activity-title">Breakfast & Hotel Check-out:</span>
+                        <p class="activity-desc">
+                            Enjoy your final breakfast at the hotel and complete the check-out procedure.
+                        </p>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-title">Airport Departure Transfer:</span>
+                        <p class="activity-desc">
+                            Your private vehicle will pick you up from the hotel and provide a smooth transfer to the airport for your onward flight home, marking the end of your memorable trip.
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Inclusions/Exclusions Summary Bar -->
+                <div class="day-summary-footer">
+                    <span class="inc-label">✔ Inclusions:</span> Private airport transfer.<br>
+                    <span class="exc-label">✖ Exclusions:</span> Lunch, Dinner, drinks, personal expenses.
+                </div>
+
+            </div>
+        </div><!--day 6-->
+        <div class="exclusions-section">
+            <div class="exclusions-title">❌ What's Not Included</div>
+            <ul class="exclusions-list">
+                <li><strong>Airfare:</strong> International & domestic flights (unless specifically mentioned in day inclusions).</li>
+                <li><strong>Visa:</strong> Entry visa fees and approval letter processing.</li>
+                <li><strong>Meals:</strong> Lunches & dinners (unless explicitly specified in the itinerary).</li>
+                <li><strong>Activities:</strong> Cam Thanh Coconut Boat Ride ticket and optional tour add-ons.</li>
+                <li><strong>Personal Expenses:</strong> Shopping, tips, porterage, laundry, minibar, spa services, and room service.</li>
+                <li><strong>Insurance & Surcharges:</strong> Travel insurance, unexpected tax increases, or fuel surcharges.</li>
+                <li><strong>Other:</strong> Anything not explicitly mentioned under the "Inclusions" section of this itinerary.</li>
+            </ul>
+        </div>
+    </main>
     <!-- MAIN CONTENT - PAGE 2 -->
     <main>     
 
