@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 Route::get('/pdf/itinerary/{id}', 'PdfController@generatePdf');
 Route::get('/test-pdf', 'PdfController@testPdfFromDocument');
+Route::get('/test-pdf-2', 'PdfController@testPdfFromDocument2');

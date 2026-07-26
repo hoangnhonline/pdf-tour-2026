@@ -21,6 +21,59 @@
             margin: 110px 30px 70px 30px;
             
         }
+        /* Khối tóm tắt Inclusion/Exclusion ở cuối mỗi Day Block */
+        .day-summary-footer {
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px dashed #e5e7eb;
+            font-size: 17px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* Style chung cho icon dạng ảnh */
+        .status-icon {
+            width: 15px;
+            height: 15px;
+            /* Căn giữa icon theo dòng chữ 17px */
+            vertical-align: middle;
+            /* Đẩy icon xuống một chút để khớp hoàn hảo với chữ */
+            margin-top: 7px; 
+            margin-right: 4px;
+            display: inline-block;
+        }
+
+        .day-summary-footer .inc-label {
+            color: #0891b2;
+            font-weight: bold;
+        }
+
+        .day-summary-footer .exc-label {
+            color: #ef4444;
+            font-weight: bold;
+        }
+        .day-gallery-table {
+            width: 97%;
+            border-collapse: separate;
+            border-spacing: 6px; /* Khoảng cách giữa các ảnh */
+            margin-top: 12px;
+            margin-bottom: 8px;
+            margin: auto;
+        }
+
+        .day-gallery-table td {
+            width: 25%; /* Tự động chia đều 4 cột */
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        .day-gallery-img {
+            width: 100%;
+            height: 90px; /* Cố định chiều cao để ảnh đều nhau */
+            object-fit: cover; /* Đảm bảo ảnh không bị méo tỉ lệ */
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
         /* Khối Exclusions tổng quan */
         .exclusions-section {
             margin-top: 25px;
@@ -344,6 +397,74 @@
             font-weight: bold;
             text-transform: uppercase;
         }
+        /* Container Báo Giá */
+        .price-quote-wrapper {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            page-break-inside: avoid; /* Tránh ngắt trang dở dang */
+        }
+
+        .price-quote-title {
+            color: #0b3c5d;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* Bảng Báo Giá */
+        .price-quote-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden; /* Cắt góc bo tròn */
+            border: 1px solid #f3e8ff;
+        }
+
+        .price-quote-table th {
+            background-color: #f3e8ff; /* Nền tím nhạt theo mẫu */
+            color: #1f2937;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .price-quote-table td {
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #374151;
+            border-bottom: 1px solid #f3f4f6;
+            border-right: 1px solid #fdf4ff;
+        }
+
+        .price-quote-table tr:last-child td {
+            border-bottom: none; /* Bỏ viền dưới hàng cuối */
+        }
+
+        /* Căn chỉnh cột */
+        .col-sr {
+            width: 10%;
+            text-align: left;
+        }
+
+        .col-details {
+            width: 55%;
+        }
+
+        .col-cost {
+            width: 35%;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        /* Hàng Total nổi bật hơn */
+        .row-total td {
+            font-weight: bold;
+            color: #0b3c5d;
+            background-color: #faf5ff;
+        }
     </style>
 </head>
 <body>
@@ -379,7 +500,56 @@
                 6 DAYS / 5 NIGHTS ITINERARY
             </div>
         </div>
-        
+        <!-- Traveller Details -->
+        <div class="section-header">Traveller Details</div>ITINERARY
+        <table class="grid-2col">
+            <tr>
+                <td><strong>Customer Name:</strong> Mr. Rohit Sharma</td>
+                <td><strong>Travel Dates:</strong>  Sep 15, 2026 - Sep 20, 2026</td>
+            </tr>
+            <tr>
+                <td><strong>Duration of Stay:</strong> 6 days/5 nights</td>
+                <td><strong>Destination:</strong> Vietnam</td>
+            </tr>
+            <tr>
+                <td><strong>Number of Travellers:</strong> 2</td>
+                <td><strong>Creation Date:</strong> Jul 26, 2026 01:30:12 PM</td>
+            </tr>
+        </table>
+
+        <!-- Price Quote -->
+        <div class="section-header">Price Quote</div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th width="15%">Sr. No</th>
+                    <th width="55%">Details</th>
+                    <th width="30%">Cost (INR)</th>
+                </tr>
+            </thead>
+            <tbody>                
+                <tr>
+                    <td>1</td>
+                    <td>Hotels</td>
+                    <td>9,700</td>                 
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Activities</td>
+                    <td>20,500</td>                 
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>VAT (Tax)</td>
+                    <td>622</td>                 
+                </tr>
+                <tr style="background-color: #faf5ff;">
+                    <td colspan="2" style="text-align: right;"><strong>Total:</strong></td>
+                    <td><strong style="color: #6b21a8;">INR 30,822/per person</strong></td>
+                </tr>                
+            </tbody>
+        </table>
+        <div class="section-header">Itinerary</div>       
         <div class="day-block">
             <!-- Header -->
             <div class="day-header">
@@ -412,11 +582,32 @@
                         </p>
                     </li>
                 </ul>
-
-                <!-- Inclusions & Exclusions Summary Bar -->
-               <div class="day-summary-footer">
-                    <span class="inc-label">✔ Inclusions:</span> Airport pickup (Private vehicle), Accommodation (CP), Lunch.<br>
-                    <span class="exc-label">✖ Exclusions:</span> Dinner, drinks, personal expenses.
+                <table class="day-gallery-table">
+                    <tr>
+                        <td>
+                            <img src="images/1.jpg" class="day-gallery-img" alt="Day image 1">
+                        </td>
+                        <td>
+                            <img src="images/2.jpg" class="day-gallery-img" alt="Day image 2">
+                        </td>
+                        <td>
+                            <img src="images/3.jpg" class="day-gallery-img" alt="Day image 3">
+                        </td>
+                        <td>
+                            <img src="images/4.jpg" class="day-gallery-img" alt="Day image 4">
+                        </td>
+                    </tr>
+                </table>
+                <!-- Inclusions & Exclusions Summary Bar -->            
+                <div class="day-summary-footer">
+                    <span class="inc-label">
+                        <img src="images/tick-1.png" class="status-icon" alt="Included"> Inclusions: 
+                    </span>
+                    Airport pickup (Private vehicle), Accommodation (CP), Lunch.<br>
+                    <span class="inc-label">
+                        <img src="images/tick-2.png" class="status-icon" alt="Included"> Exclusions:
+                    </span>
+                    Dinner, drinks, personal expenses.
                 </div>
 
             </div>
@@ -460,11 +651,32 @@
                         </p>
                     </li>
                 </ul>
-
+                <table class="day-gallery-table">
+                    <tr>
+                        <td>
+                            <img src="images/5.jpg" class="day-gallery-img" alt="Day image 1">
+                        </td>
+                        <td>
+                            <img src="images/7.jpg" class="day-gallery-img" alt="Day image 2">
+                        </td>
+                        <td>
+                            <img src="images/6.jpg" class="day-gallery-img" alt="Day image 3">
+                        </td>
+                        <td>
+                            <img src="images/8.jpeg" class="day-gallery-img" alt="Day image 4">
+                        </td>
+                    </tr>
+                </table>
                 <!-- Inclusions & Exclusions Summary Bar -->
                 <div class="day-summary-footer">
-                    <span class="inc-label">✔ Inclusions:</span> Private transfers, VinWonders entrance tickets, Indian dinner.<br>
-                    <span class="exc-label">✖ Exclusions:</span> Lunch, drinks, personal expenses.
+                    <span class="inc-label">
+                        <img src="images/tick-1.png" class="status-icon" alt="Included"> Inclusions: 
+                    </span>
+                    Private transfers, VinWonders entrance tickets, Indian dinner.<br>
+                    <span class="inc-label">
+                        <img src="images/tick-2.png" class="status-icon" alt="Included"> Exclusions:
+                    </span>
+                    Lunch, drinks, personal expenses.
                 </div>
 
             </div>
@@ -497,11 +709,32 @@
                         </p>
                     </li>
                 </ul>
-
+                <table class="day-gallery-table">
+                    <tr>
+                        <td>
+                            <img src="images/10.jpg" class="day-gallery-img" alt="Day image 1">
+                        </td>
+                        <td>
+                            <img src="images/9.jpeg" class="day-gallery-img" alt="Day image 2">
+                        </td>
+                        <td>
+                            <img src="images/12.jpg" class="day-gallery-img" alt="Day image 3">
+                        </td>
+                        <td>
+                            <img src="images/11.jpeg" class="day-gallery-img" alt="Day image 4">
+                        </td>
+                    </tr>
+                </table>
                 <!-- Inclusions/Exclusions for Option 1 -->
                 <div class="day-summary-footer">
-                    <span class="inc-label">✔ Inclusions (Opt 1):</span> Shared group transfers, Speedboat, Tour guide, Island lunch, Snorkeling gear.<br>
-                    <span class="exc-label">✖ Exclusions:</span> Dinner, drinks, personal expenses.
+                    <span class="inc-label">
+                        <img src="images/tick-1.png" class="status-icon" alt="Included"> Inclusions: 
+                    </span>
+                    Shared group transfers, Speedboat, Tour guide, Island lunch, Snorkeling gear.<br>
+                    <span class="inc-label">
+                        <img src="images/tick-2.png" class="status-icon" alt="Included"> Exclusions:
+                    </span>
+                     Dinner, drinks, personal expenses.
                 </div>
 
 
@@ -523,11 +756,32 @@
                         </p>
                     </li>
                 </ul>
-
-                <!-- Inclusions/Exclusions for Option 2 -->
+                <table class="day-gallery-table">
+                    <tr>
+                        <td>
+                            <img src="images/13.jpg" class="day-gallery-img" alt="Day image 1">
+                        </td>
+                        <td>
+                            <img src="images/14.jpg" class="day-gallery-img" alt="Day image 2">
+                        </td>
+                        <td>
+                            <img src="images/15.jpg" class="day-gallery-img" alt="Day image 3">
+                        </td>
+                        <td>
+                            <img src="images/16.jpg" class="day-gallery-img" alt="Day image 4">
+                        </td>
+                    </tr>
+                </table>
+                <!-- Inclusions/Exclusions for Option 2 -->               
                 <div class="day-summary-footer">
-                    <span class="inc-label">✔ Inclusions (Opt 2):</span> Private transfers, Cable car round-trip ticket, Kiss Bridge entry ticket.<br>
-                    <span class="exc-label">✖ Exclusions:</span> Lunch, Dinner, drinks, personal expenses.
+                    <span class="inc-label">
+                        <img src="images/tick-1.png" class="status-icon" alt="Included"> Inclusions: 
+                    </span>
+                    Private transfers, Cable car round-trip ticket, Kiss Bridge entry ticket.<br>
+                    <span class="inc-label">
+                        <img src="images/tick-2.png" class="status-icon" alt="Included"> Exclusions:
+                    </span>
+                    Lunch, Dinner, drinks, personal expenses.
                 </div>
 
             </div>
@@ -565,10 +819,16 @@
                     </li>
                 </ul>
 
-                <!-- Inclusions/Exclusions Summary Bar -->
+                <!-- Inclusions/Exclusions Summary Bar -->                
                 <div class="day-summary-footer">
-                    <span class="inc-label">✔ Inclusions:</span> Domestic flight ticket, Private airport transfers, Private 5-hr Hoi An cab, Accommodation (CP).<br>
-                    <span class="exc-label">✖ Exclusions:</span> Lunch, Dinner, drinks, Coconut boat ride ticket, personal expenses.
+                    <span class="inc-label">
+                        <img src="images/tick-1.png" class="status-icon" alt="Included"> Inclusions: 
+                    </span>
+                    Private airport transfers, Private 5-hr Hoi An cab, Accommodation (CP).<br>
+                    <span class="inc-label">
+                        <img src="images/tick-2.png" class="status-icon" alt="Included"> Exclusions:
+                    </span>
+                   Domestic flight ticket, Lunch, Dinner, drinks, Coconut boat ride ticket, personal expenses.
                 </div>
 
             </div>
@@ -606,10 +866,16 @@
                     </li>
                 </ul>
 
-                <!-- Inclusions/Exclusions Summary Bar -->
+                <!-- Inclusions/Exclusions Summary Bar -->               
                 <div class="day-summary-footer">
-                    <span class="inc-label">✔ Inclusions:</span> Private transfers, Ba Na Hills entry & cable car tickets.<br>
-                    <span class="exc-label">✖ Exclusions:</span> Lunch, Dinner, drinks, personal expenses.
+                    <span class="inc-label">
+                        <img src="images/tick-1.png" class="status-icon" alt="Included"> Inclusions: 
+                    </span>
+                    Private transfers, Ba Na Hills entry & cable car tickets.<br>
+                    <span class="inc-label">
+                        <img src="images/tick-2.png" class="status-icon" alt="Included"> Exclusions:
+                    </span>
+                    Lunch, Dinner, drinks, personal expenses.
                 </div>
 
             </div>
@@ -640,10 +906,16 @@
                     </li>
                 </ul>
 
-                <!-- Inclusions/Exclusions Summary Bar -->
+                <!-- Inclusions/Exclusions Summary Bar -->                
                 <div class="day-summary-footer">
-                    <span class="inc-label">✔ Inclusions:</span> Private airport transfer.<br>
-                    <span class="exc-label">✖ Exclusions:</span> Lunch, Dinner, drinks, personal expenses.
+                    <span class="inc-label">
+                        <img src="images/tick-1.png" class="status-icon" alt="Included"> Inclusions: 
+                    </span>
+                    Private airport transfer.<br>
+                    <span class="inc-label">
+                        <img src="images/tick-2.png" class="status-icon" alt="Included"> Exclusions:
+                    </span>
+                    Lunch, Dinner, drinks, personal expenses.
                 </div>
 
             </div>
