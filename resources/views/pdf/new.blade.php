@@ -21,6 +21,16 @@
             margin: 110px 30px 70px 30px;
             
         }
+        /* Cho phép ngắt trang linh hoạt bên trong từng Day Block */
+        .day-block {
+            page-break-inside: auto !important;
+        }
+
+        /* Hoặc cho phép ngắt trang đối với bảng nội dung */
+        .day-body, 
+        .day-details-table {
+            page-break-inside: auto !important;
+        }
         /* Khối tóm tắt Inclusion/Exclusion ở cuối mỗi Day Block */
         .day-summary-footer {
             margin-top: 12px;
@@ -518,8 +528,11 @@
         </table> -->
 
         <!-- Price Quote -->
+        <div style="margin-bottom: 200px">
+            <img src="images/4c.png" style="width: 100%">
+        </div>
         <div class="section-header">Price Quote</div>
-        <table class="data-table" style="margin-bottom: 450px;">
+        <table class="data-table">
             <thead>
                 <tr>
                     <th width="15%">Sr. No</th>
@@ -549,6 +562,7 @@
                 </tr>                
             </tbody>
         </table>
+        
 
         <div class="section-header">Itinerary</div>       
         <div class="day-block">
