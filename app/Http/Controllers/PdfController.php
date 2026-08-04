@@ -161,7 +161,7 @@ class PdfController extends Controller
             $bgPath = null;
           //  dd('11111');
         }
-        return view('pdf.test_itinerary', compact('pdfData', 'bgBase64', 'bgPath'));
+        return view('pdf.new', compact('pdfData', 'bgBase64', 'bgPath'));
        //$pdf = PDF::loadView('pdf.test_itinerary', compact('pdfData', 'bgBase64'), [], 'utf-8')
          // ->setPaper('a4', 'portrait');
         $pdf = PDF::loadView('pdf.test_itinerary', compact('pdfData', 'bgBase64'))
@@ -280,7 +280,7 @@ class PdfController extends Controller
         //return view('pdf.test_itinerary', compact('pdfData', 'bgBase64', 'bgPath'));
        //$pdf = PDF::loadView('pdf.test_itinerary', compact('pdfData', 'bgBase64'), [], 'utf-8')
          // ->setPaper('a4', 'portrait');
-        $pdf = PDF::loadView('pdf.test_itinerary', compact('pdfData', 'bgBase64'))
+        $pdf = PDF::loadView('pdf.new', compact('pdfData', 'bgBase64'))
               ->setPaper('a4', 'portrait'); 
         return $pdf->stream('30Sundays-Itinerary-Test.pdf');
     }
